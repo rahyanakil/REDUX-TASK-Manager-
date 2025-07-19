@@ -1,4 +1,4 @@
-import App from "@/App"; // ✅ Import the actual component
+import { Counter } from "@/components/Pages/counter";
 import Tasks from "@/components/Pages/Tasks"; // ✅ Import the Tasks component
 import Users from "@/components/Pages/User"; // ✅ Import the Users component
 import { createBrowserRouter } from "react-router"; // Also correct this if needed
@@ -6,7 +6,7 @@ import { createBrowserRouter } from "react-router"; // Also correct this if need
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Tasks />,
     children: [
       {
         path: "users",
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "tasks",
         element: <Tasks />,
+      },
+      {
+        path: "counter",
+        element: <Counter />,
       },
     ],
   },
