@@ -8,7 +8,7 @@ interface InitialState {
 const initialState: InitialState = {
   tasks: [
     {
-      id: "asdsfadafd",
+      id: "1",
       title: "Initialize frontend",
       description: "Create home page and routing",
       dueDate: "2025-11-01",
@@ -16,7 +16,12 @@ const initialState: InitialState = {
       priority: "High",
     },
     {
-      filter: "all",
+      id: "2",
+      title: "Initializing GitHub repository",
+      description: "Create a new repository for the project",
+      dueDate: "2025-11-01",
+      isComplete: false,
+      priority: "Medium",
     },
   ],
 };
@@ -30,7 +35,5 @@ const taskSlice = createSlice({
 export const selectTasks = (state: RootState) => {
   return state.todo.tasks;
 };
-export const selectFilter = (state: RootState) => {
-  return state.todo.filter;
-};
+
 export default taskSlice.reducer;
