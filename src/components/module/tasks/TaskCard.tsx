@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
+import type { ITask } from "@/types";
 import { Trash2 } from "lucide-react";
 
 interface IProps {
@@ -22,7 +23,7 @@ export default function TaskCard({ task }: IProps) {
           <h1>{task.title}</h1>
         </div>
         <div className="flex gap-3 items-center">
-          <Button variant="Link" className="p-0 text-red-500">
+          <Button variant="link" className="p-0 text-red-500">
             <Trash2 />
           </Button>
           <Checkbox />
