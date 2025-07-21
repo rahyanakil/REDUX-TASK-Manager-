@@ -23,31 +23,33 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { addTask } from "@/redux/features/task/taskSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import type { ITask } from "@/types";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { formatDate } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 
 export function AddTaskModal() {
-  type TaskFormData = {
-    title: string;
-    description: string;
-    priority: string;
-    dueDate?: Date;
-    // Add other fields as needed
-  };
+const form =useForm()
+const dispatch = useAppDispatch()
+
+const onSubmit: SubmitHandler<FieldValues> = (data)=>{
+  dispatch(addTask(data as ITask))
+}
+
 
   
-  const form = useForm<TaskFormData>();
+ 
 
-  const dispatch = useAppDispatch()
+  
 
-  const onSubmit = (data: TaskFormData) => {
-    console.log("Form Data:", data);
-    dispatch(addTask(data))
-    // Here you would typically dispatch an action to add the task
-    // dispatch(addTask(data));
-  };
+
+  // const onSubmit = (data: TaskFormData) => {
+  //   console.log("Form Data:", data);
+  //   dispatch(addTask(data))
+  //   // Here you would typically dispatch an action to add the task
+  //   // dispatch(addTask(data));
+  // };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -62,7 +64,7 @@ export function AddTaskModal() {
         </DialogHeader>
         <>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+            <form onSubmit = {form.handleSubmit(onSubmit)}>
               {/* //form field for title */}
               <FormField
                 control={form.control}
