@@ -6,7 +6,7 @@ export default function Tasks() {
   const tasks = useAppSelector(selectTasks);
 
   // console.log(tasks);
-  console.log("Tasks:", tasks);
+  // console.log("Tasks:", tasks);
   return (
     <div className="mx-auto max-w-7xl px-5 mt-20">
       <div className="flex justify-between items-center">
